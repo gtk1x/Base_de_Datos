@@ -17,7 +17,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
        
       
 
@@ -468,15 +468,13 @@ public class Principal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton23))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addGap(216, 216, 216)
+                        .addComponent(jLabel51))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
                         .addComponent(jButton16)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel51))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addComponent(jButton17)))))
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton17)))
                 .addContainerGap(255, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -564,6 +562,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+            NewUser user = new NewUser(this, true);
+            user.setVisible (true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton15ActionPerformed
 
