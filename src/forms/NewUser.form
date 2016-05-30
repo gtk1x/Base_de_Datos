@@ -82,7 +82,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="dpi" pref="154" max="32767" attributes="0"/>
-                                              <Component id="jDateChooser1" max="32767" attributes="0"/>
+                                              <Component id="jdt" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -173,7 +173,7 @@
                                   <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jdt" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -408,7 +408,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+    <Component class="com.toedter.calendar.JDateChooser" name="jdt">
     </Component>
   </SubComponents>
 </Form>

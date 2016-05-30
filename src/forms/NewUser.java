@@ -5,7 +5,7 @@
  */
 package forms;
 
-import forms.Conexion;
+//import forms.Conexion;
 import java.sql.*;
 import java.awt.Image;
 import java.io.File;
@@ -14,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -80,7 +81,7 @@ public class NewUser extends javax.swing.JDialog {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdt = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Actividad");
@@ -226,7 +227,7 @@ public class NewUser extends javax.swing.JDialog {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                 .addComponent(dpi, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addComponent(jdt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                     .addGap(20, 20, 20)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(layout.createSequentialGroup()
@@ -294,7 +295,7 @@ public class NewUser extends javax.swing.JDialog {
                                     .addComponent(jLabel39)
                                     .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel42)))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -372,7 +373,9 @@ public class NewUser extends javax.swing.JDialog {
     }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-void cargar()
+
+    
+    void cargar()
    {
              
         try {
@@ -407,13 +410,20 @@ void cargar()
    
    }
     
-    
+      void enviar(){
+String dia = Integer.toString(jdt.getCalendar().get(Calendar.DAY_OF_MONTH));
+String mes = Integer.toString(jdt.getCalendar().get(Calendar.MONTH) + 1);
+String year = Integer.toString(jdt.getCalendar().get(Calendar.YEAR));
+String fecha = (year + "/"+  mes +"/" + dia);
+nacimiento.setText(fecha);       
+   }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Conexion con=new Conexion();
         Connection reg=con.conexion();
         PreparedStatement pst;    
         try {
+            enviar();
             pst=reg.prepareCall("call insertarusuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");        
             FileInputStream archivofoto;
             pst.setString(1, nombre.getText());
@@ -508,7 +518,6 @@ void cargar()
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -525,6 +534,7 @@ void cargar()
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
+    private com.toedter.calendar.JDateChooser jdt;
     private javax.swing.JTextField nacimiento;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField telefono;

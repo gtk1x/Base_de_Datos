@@ -5,14 +5,20 @@
  */
 package forms;
 
+import java.awt.Image;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -26,7 +32,8 @@ public class NewMember extends javax.swing.JDialog {
     public NewMember(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        jDateChooser1.setEnabled(true);        Read_group.add(jRadioButton2);
+        jdt.setEnabled(true);  
+        Read_group.add(jRadioButton2);
         Read_group.add(jRadioButton3);
         write_group.add(jRadioButton4);
         write_group.add(jRadioButton5);
@@ -45,7 +52,7 @@ public class NewMember extends javax.swing.JDialog {
         write_group = new javax.swing.ButtonGroup();
         jTimeChooserDemo1 = new lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo();
         jLabel8 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        imagen = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -78,7 +85,7 @@ public class NewMember extends javax.swing.JDialog {
         grupo = new javax.swing.JComboBox();
         religion = new javax.swing.JComboBox();
         etnia = new javax.swing.JComboBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        proyecto = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         nom1 = new javax.swing.JTextField();
@@ -86,7 +93,7 @@ public class NewMember extends javax.swing.JDialog {
         jLabel18 = new javax.swing.JLabel();
         nom2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jdt = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         dir = new javax.swing.JTextField();
@@ -100,8 +107,8 @@ public class NewMember extends javax.swing.JDialog {
         dpi = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        ruta = new javax.swing.JTextField();
-        jLabel25 = new javax.swing.JLabel();
+        rutafoto = new javax.swing.JTextField();
+        fotodpi = new javax.swing.JLabel();
         rutadpi = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
 
@@ -110,8 +117,9 @@ public class NewMember extends javax.swing.JDialog {
 
         jLabel8.setText("NUEVA INTEGRANTE");
 
-        jLabel24.setText("                  Imagen");
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        imagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imagen.setText("Imagen");
+        imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +140,11 @@ public class NewMember extends javax.swing.JDialog {
         });
 
         jRadioButton5.setText("NO");
+        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel16.setText("Sabe escribir:");
 
@@ -169,6 +182,11 @@ public class NewMember extends javax.swing.JDialog {
         });
 
         jRadioButton3.setText("NO");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Sabe leer:");
 
@@ -270,7 +288,7 @@ public class NewMember extends javax.swing.JDialog {
 
         est_civil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Soltera", "Casada", "Viuda", "Divorciada" }));
 
-        grupo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Listado de grupos" }));
+        grupo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Listado de grupos", "1", "2" }));
 
         religion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Evangélica", "Católica", "Mormona", "Ninguna", " " }));
         religion.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +304,7 @@ public class NewMember extends javax.swing.JDialog {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        proyecto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
 
         jLabel2.setText("Proyecto");
 
@@ -334,7 +352,7 @@ public class NewMember extends javax.swing.JDialog {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(proyecto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(religion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel19)
@@ -368,7 +386,7 @@ public class NewMember extends javax.swing.JDialog {
                     .addComponent(grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
                     .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(proyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -434,18 +452,15 @@ public class NewMember extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGap(26, 26, 26))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel18)
-                                .addGap(18, 18, 18)))
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jdt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(apeca, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel7))
@@ -454,21 +469,21 @@ public class NewMember extends javax.swing.JDialog {
                             .addComponent(nom3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
                             .addComponent(nom2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ape2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel1))
-                        .addGap(25, 25, 25)
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(dir))))
-                .addContainerGap())
+                .addGap(10, 10, 10))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,9 +494,7 @@ public class NewMember extends javax.swing.JDialog {
                     .addComponent(nom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addComponent(nom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -491,12 +504,13 @@ public class NewMember extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(apeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -509,11 +523,21 @@ public class NewMember extends javax.swing.JDialog {
         );
 
         jButton3.setText("Cargar Imagen");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jLabel25.setText("                  Imagen");
-        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        fotodpi.setText("                  Imagen");
+        fotodpi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton4.setText("Cargar Imagen");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -529,18 +553,18 @@ public class NewMember extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                                    .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(20, 20, 20)
                                         .addComponent(jButton3))
-                                    .addComponent(ruta))
+                                    .addComponent(rutafoto))
                                 .addGap(18, 18, 18)
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                            .addComponent(fotodpi, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                                             .addComponent(rutadpi)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -575,16 +599,16 @@ public class NewMember extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ruta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rutafoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
                         .addGap(10, 10, 10))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rutadpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fotodpi, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -642,10 +666,12 @@ public class NewMember extends javax.swing.JDialog {
     }//GEN-LAST:event_ape2ActionPerformed
 
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        escribir= "si";
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    leer = "si";
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -653,11 +679,21 @@ public class NewMember extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_etniaActionPerformed
 
+         void enviar(){
+String dia = Integer.toString(jdt.getCalendar().get(Calendar.DAY_OF_MONTH));
+String mes = Integer.toString(jdt.getCalendar().get(Calendar.MONTH) + 1);
+String year = Integer.toString(jdt.getCalendar().get(Calendar.YEAR));
+String fecha = (year + "/"+  mes +"/" + dia);
+nacimiento.setText(fecha);       
+   }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                PreparedStatement pst;    
         try {
-            pst=reg.prepareCall("call insertmiembro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");        
+            enviar();
+            pst=reg.prepareCall("call insertarmiembro(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");        
             FileInputStream archivofoto;
+            FileInputStream fotocopiadpi;
             pst.setString(1, nom1.getText());
             pst.setString(2, nom2.getText());
             pst.setString(3, nom3.getText());
@@ -670,30 +706,87 @@ public class NewMember extends javax.swing.JDialog {
             pst.setString(10, tel.getText());
             pst.setString(11, comun.getSelectedItem().toString());
             pst.setString(12, region.getSelectedItem().toString());
-            pst.setString(13, est_civil.getSelectedItem().toString());
-            pst.setString(12, oficio.getSelectedItem().toString());
-            pst.setString(11, religion.getSelectedItem().toString());
-            pst.setString(12, cargo.getSelectedItem().toString());
-            pst.setString(9, idioma.getText());
-            pst.setString(10, idio2.getText());
-            pst.setString(13, dir.getText());
-            archivofoto = new FileInputStream(dir.getText());
-            pst.setBinaryStream(14, archivofoto);
+            pst.setString(13, etnia.getSelectedItem().toString());
+            pst.setString(14, est_civil.getSelectedItem().toString());
+            pst.setString(15, oficio.getSelectedItem().toString());
+            pst.setString(16, religion.getSelectedItem().toString());
+            pst.setString(17, cargo.getSelectedItem().toString());
+            pst.setString(18, idioma.getText());
+            pst.setString(19, idio2.getText());
+            pst.setString(20, leer);
+            pst.setString(21, escribir);
+            pst.setString(22, rutafoto.getText());
+            archivofoto = new FileInputStream(rutafoto.getText());
+            pst.setBinaryStream(23, archivofoto);
+            pst.setString(24, rutafoto.getText());
+            fotocopiadpi = new FileInputStream(rutafoto.getText());
+            pst.setBinaryStream(25, fotocopiadpi);         
+            pst.setString(26, proyecto.getSelectedItem().toString());
+            pst.setString(27, grupo.getSelectedItem().toString());
             
            int res=pst.executeUpdate();
     if (res==1){
         JOptionPane.showMessageDialog(rootPane,"Datos Guardados..");
     }
-    
- 
 } 
-        catch (FileNotFoundException ex) {
-            Logger.getLogger(NewMember.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        catch (FileNotFoundException | SQLException ex) {
             Logger.getLogger(NewMember.class.getName()).log(Level.SEVERE, null, ex);
         }
         // TODO add your handling code here:
+        
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        leer = "no";
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+        escribir = "no";
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de JPEG(*.JPG;*.JPEG)","jpg","jpeg");
+        JFileChooser archivo = new JFileChooser ();
+        archivo.addChoosableFileFilter(filtro);
+        archivo.setDialogTitle("Abrir Archivo");
+        File ruta = new File ("D:/esti");
+        archivo.setCurrentDirectory(ruta);
+    int ventana = archivo.showOpenDialog(null);
+    if (ventana == JFileChooser.APPROVE_OPTION)
+    {
+        File file = archivo.getSelectedFile();
+        rutafoto.setText(String.valueOf(file));
+        
+        Image foto= getToolkit().createImage(rutafoto.getText());
+        foto = foto.getScaledInstance(160, 147, Image.SCALE_DEFAULT);
+        imagen.setIcon(new ImageIcon(foto));
+        
+    }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Formatos de JPEG(*.JPG;*.JPEG)","jpg","jpeg");
+        JFileChooser archivo = new JFileChooser ();
+        archivo.addChoosableFileFilter(filtro);
+        archivo.setDialogTitle("Abrir Archivo");
+        File ruta = new File ("D:/esti");
+        archivo.setCurrentDirectory(ruta);
+    int ventana = archivo.showOpenDialog(null);
+    if (ventana == JFileChooser.APPROVE_OPTION)
+    {
+        File file = archivo.getSelectedFile();
+        rutadpi.setText(String.valueOf(file));
+        
+        Image foto= getToolkit().createImage(rutadpi.getText());
+        foto = foto.getScaledInstance(156, 147, Image.SCALE_DEFAULT);
+        fotodpi.setIcon(new ImageIcon(foto));
+        
+    }
+
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -763,15 +856,15 @@ public class NewMember extends javax.swing.JDialog {
     private javax.swing.JTextField dpi;
     private javax.swing.JComboBox est_civil;
     private javax.swing.JComboBox etnia;
+    private javax.swing.JLabel fotodpi;
     private javax.swing.JComboBox grupo;
     private javax.swing.JTextField idio2;
     private javax.swing.JTextField idioma;
+    private javax.swing.JLabel imagen;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -785,8 +878,6 @@ public class NewMember extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
@@ -805,19 +896,23 @@ public class NewMember extends javax.swing.JDialog {
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JRadioButton jRadioButton5;
     private lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo jTimeChooserDemo1;
+    private com.toedter.calendar.JDateChooser jdt;
     private javax.swing.JTextField nacimiento;
     private javax.swing.JTextField nom1;
     private javax.swing.JTextField nom2;
     private javax.swing.JTextField nom3;
     private javax.swing.JComboBox oficio;
+    private javax.swing.JComboBox<String> proyecto;
     private javax.swing.JComboBox region;
     private javax.swing.JComboBox religion;
-    private javax.swing.JTextField ruta;
     private javax.swing.JTextField rutadpi;
+    private javax.swing.JTextField rutafoto;
     private javax.swing.JTextField tel;
     private javax.swing.ButtonGroup write_group;
     // End of variables declaration//GEN-END:variables
 Conexion con=new Conexion();
         Connection reg=con.conexion();
+        private String leer;
+        private String escribir;
 
 }
