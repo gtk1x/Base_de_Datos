@@ -39,8 +39,10 @@ public class NewUser extends javax.swing.JDialog {
         nacimiento.setEnabled(false);
         lid.setVisible(false);
         id.setVisible(false);
-        
+        idd.setVisible(false);
+        Actualizar.setEnabled(false);
         Inventario("");
+        Combo1();
     }
 
     /**
@@ -89,7 +91,8 @@ public class NewUser extends javax.swing.JDialog {
         jLabel40 = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         lid = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        idd = new javax.swing.JTextField();
+        Guardar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Actualizar = new javax.swing.JButton();
 
@@ -138,7 +141,6 @@ public class NewUser extends javax.swing.JDialog {
 
         jLabel25.setText("Nombre:");
 
-        tipou.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3" }));
         tipou.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tipouActionPerformed(evt);
@@ -182,6 +184,12 @@ public class NewUser extends javax.swing.JDialog {
 
         lid.setText("id");
 
+        idd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iddActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -197,26 +205,29 @@ public class NewUser extends javax.swing.JDialog {
                         .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(tipou, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefono, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(telefono)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nombre, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jdt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(dpi, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addComponent(usuario, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                                .addComponent(nacimiento))
+                            .addComponent(dpi)
+                            .addComponent(nombre)))
+                    .addComponent(usuario)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(tipou, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(idd, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(compania, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tipotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -229,7 +240,7 @@ public class NewUser extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 40, Short.MAX_VALUE))
+                                .addGap(18, 47, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -306,20 +317,27 @@ public class NewUser extends javax.swing.JDialog {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(tipou, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(tipou, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(idd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Guardar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
 
         jButton2.setText("Cancelar");
 
         Actualizar.setText("Actualizar");
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -328,6 +346,9 @@ public class NewUser extends javax.swing.JDialog {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(fotogra, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,14 +359,11 @@ public class NewUser extends javax.swing.JDialog {
                             .addComponent(jLabel8))
                         .addGap(26, 26, 26)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
                         .addComponent(Actualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Guardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)))
                 .addContainerGap())
@@ -365,7 +383,7 @@ public class NewUser extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(Guardar)
                     .addComponent(jButton2)
                     .addComponent(Actualizar))
                 .addGap(18, 18, 18)
@@ -395,7 +413,18 @@ public class NewUser extends javax.swing.JDialog {
     }//GEN-LAST:event_tipotelActionPerformed
 
     private void tipouActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipouActionPerformed
-        // TODO add your handling code here:
+try{
+ //   Connection reg=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","BIMAR","A0E9M0L3N");
+		   Statement Sent1=reg.createStatement();
+           ResultSet rs1= Sent1.executeQuery("select id from tipo_usuario where nombre_tipo= '"+this.tipou.getSelectedItem()+"'");
+           rs1.next();
+           this.idd.setText(String.valueOf(rs1.getInt("id")));
+    
+    
+}catch(Exception e){
+    JOptionPane.showMessageDialog(null, e);
+    
+}
     }//GEN-LAST:event_tipouActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -470,7 +499,28 @@ public class NewUser extends javax.swing.JDialog {
         }
      }
 
- 
+ void Combo1(){
+        
+        ResultSet rs;
+        String sql= "SELECT * FROM tipo_usuario";
+        PreparedStatement sqls = null;
+        try {
+            sqls = reg.prepareStatement(sql);
+        
+        
+            rs=sqls.executeQuery();
+        
+        while(rs.next()){
+            usuario u = new usuario();
+            u.setUsuario(rs.getString("nombre_tipo"));
+            tipou.addItem(u);
+}
+        
+        
+        }catch (SQLException ex) {
+            Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
     
       void enviar(){
 String dia = Integer.toString(jdt.getCalendar().get(Calendar.DAY_OF_MONTH));
@@ -480,9 +530,7 @@ String fecha = (year + "/"+  mes +"/" + dia);
 nacimiento.setText(fecha);       
    }
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Conexion con=new Conexion();
-        Connection reg=con.conexion();
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         PreparedStatement pst;    
         try {
             enviar();
@@ -499,7 +547,7 @@ nacimiento.setText(fecha);
             pst.setString(9, tipotel.getSelectedItem().toString());
             pst.setString(10, usuario.getText());
             pst.setString(11,new String(contraseña.getPassword()));
-            pst.setString(12, tipou.getSelectedItem().toString());
+            pst.setString(12, idd.getText());
             pst.setString(13, dir.getText());
             archivofoto = new FileInputStream(dir.getText());
             pst.setBinaryStream(14, archivofoto);
@@ -507,6 +555,7 @@ nacimiento.setText(fecha);
            int res=pst.executeUpdate();
     if (res==1){
         JOptionPane.showMessageDialog(rootPane,"Datos Guardados..");
+        Limpiar();
     }
     
  
@@ -517,10 +566,14 @@ nacimiento.setText(fecha);
             Logger.getLogger(NewUser.class.getName()).log(Level.SEVERE, null, ex);
         }
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_GuardarActionPerformed
 
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
-               int fila= jTable1.getSelectedRow();
+        Actualizar.setEnabled(true);
+        Guardar.setEnabled(false);
+        
+        
+        int fila= jTable1.getSelectedRow();
         if(fila>=0){
             id.setText(jTable1.getValueAt(fila, 0).toString());
             nombre.setText(jTable1.getValueAt(fila, 1).toString());
@@ -533,9 +586,90 @@ nacimiento.setText(fecha);
             nacimiento.setText(jTable1.getValueAt(fila, 8).toString());
             telefono.setText(jTable1.getValueAt(fila, 9).toString());
             email.setText(jTable1.getValueAt(fila,10).toString());
+            Image foto= getToolkit().createImage(dir.getText());
+        foto = foto.getScaledInstance(156, 147, Image.SCALE_DEFAULT);
+        fotogra.setIcon(new ImageIcon(foto));
         }
 
     }//GEN-LAST:event_editarActionPerformed
+
+    void Limpiar(){
+        id.setText("");
+        nombre.setText("");
+        apellido.setText("");
+        dpi.setText("");
+        direccion.setText("");
+        nacimiento.setText("");
+        email.setText("");
+        telefono.setText("");
+        compania.setSelectedItem("");
+        tipotel.setSelectedItem("");
+        usuario.setText("");
+        contraseña.setText("");
+        tipou.setSelectedItem("");
+        fotogra.setText("");
+        dir.setText("");
+        }
+    
+    
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
+        PreparedStatement pst;  
+        if((dir.getText().equals("")) )
+  {
+      JOptionPane.showMessageDialog(this, "Cargue Foto");
+  }
+        if((usuario.getText().equals("")) || contraseña.getPassword().equals("")||((telefono.getText().equals(""))))
+        {
+        JOptionPane.showMessageDialog(this, "Ingrese Usuario, Contraseña  y Numero de Telefono");
+        }
+        if ((nacimiento.getText().equals("")))
+        {
+            
+            JOptionPane.showMessageDialog(this,"Ingrese Fecha de Nacimiento");
+            
+        }
+  else
+  {
+          try {
+        
+            pst=reg.prepareCall("call actualizarusuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");        
+            FileInputStream archivofoto;
+            pst.setString(1, id.getText());
+            pst.setString(2, nombre.getText());
+            pst.setString(3, apellido.getText());
+            pst.setString(4, dpi.getText());
+            pst.setString(5, direccion.getText());
+            pst.setString(6, nacimiento.getText());
+            pst.setString(7, email.getText());
+            pst.setString(8, telefono.getText());
+            pst.setString(9, compania.getSelectedItem().toString());
+            pst.setString(10, tipotel.getSelectedItem().toString());
+            pst.setString(11, usuario.getText());
+            pst.setString(12,new String(contraseña.getPassword()));
+            pst.setString(13, idd.getText());
+            pst.setString(14, dir.getText());
+            archivofoto = new FileInputStream(dir.getText());
+            pst.setBinaryStream(15, archivofoto);
+            
+           int res=pst.executeUpdate();
+    if (res==1){
+        JOptionPane.showMessageDialog(rootPane,"Datos Actualizados");
+    }
+        
+ 
+}  catch (Exception e) {
+        System.out.print(e.getMessage());
+    }
+   
+  }  
+        Limpiar();
+        Guardar.setEnabled(true);
+        Actualizar.setEnabled(false);
+    }//GEN-LAST:event_ActualizarActionPerformed
+
+    private void iddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddActionPerformed
+
+    }//GEN-LAST:event_iddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -588,6 +722,7 @@ nacimiento.setText(fecha);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Actualizar;
+    private javax.swing.JButton Guardar;
     private javax.swing.JTextField apellido;
     private javax.swing.JComboBox compania;
     private javax.swing.JPasswordField contraseña;
@@ -598,7 +733,7 @@ nacimiento.setText(fecha);
     private javax.swing.JTextField email;
     private javax.swing.JLabel fotogra;
     private javax.swing.JTextField id;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField idd;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
