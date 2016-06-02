@@ -35,6 +35,7 @@ public class NewUser extends javax.swing.JDialog {
     public NewUser(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         dir.setEnabled(false);
         nacimiento.setEnabled(false);
         lid.setVisible(false);
@@ -56,6 +57,7 @@ public class NewUser extends javax.swing.JDialog {
 
         menu = new javax.swing.JPopupMenu();
         editar = new javax.swing.JMenuItem();
+        eliminar = new javax.swing.JMenuItem();
         jLabel8 = new javax.swing.JLabel();
         fotogra = new javax.swing.JLabel();
         dir = new javax.swing.JTextField();
@@ -95,14 +97,23 @@ public class NewUser extends javax.swing.JDialog {
         Guardar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Actualizar = new javax.swing.JButton();
+        regresar = new javax.swing.JButton();
 
-        editar.setText("editar");
+        editar.setText("Editar");
         editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarActionPerformed(evt);
             }
         });
         menu.add(editar);
+
+        eliminar.setText("Eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+        menu.add(eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Actividad");
@@ -331,11 +342,23 @@ public class NewUser extends javax.swing.JDialog {
         });
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         Actualizar.setText("Actualizar");
         Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActualizarActionPerformed(evt);
+            }
+        });
+
+        regresar.setText("Regresar");
+        regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarActionPerformed(evt);
             }
         });
 
@@ -346,7 +369,7 @@ public class NewUser extends javax.swing.JDialog {
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
@@ -358,14 +381,17 @@ public class NewUser extends javax.swing.JDialog {
                                 .addGap(32, 32, 32))
                             .addComponent(jLabel8))
                         .addGap(26, 26, 26)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(Actualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Guardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Actualizar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Guardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(regresar)
+                                .addGap(14, 14, 14)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -385,11 +411,12 @@ public class NewUser extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Guardar)
                     .addComponent(jButton2)
-                    .addComponent(Actualizar))
+                    .addComponent(Actualizar)
+                    .addComponent(regresar))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -531,8 +558,27 @@ nacimiento.setText(fecha);
    }
     
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+           if((nombre.getText().equals("")) )
+  {
+      JOptionPane.showMessageDialog(this, "Ingrese Nombre");
+  }
+        if((dir.getText().equals("")) )
+  {
+      JOptionPane.showMessageDialog(this, "Cargue Foto");
+  }
+        if((usuario.getText().equals("")) || contraseña.getPassword().equals("")||((telefono.getText().equals(""))))
+        {
+        JOptionPane.showMessageDialog(this, "Ingrese Usuario, Contraseña  y Numero de Telefono");
+        }
+        if ((nacimiento.getText().equals("")))
+        {
+            
+            JOptionPane.showMessageDialog(this,"Ingrese Fecha de Nacimiento");
+            
+        }
+
         PreparedStatement pst;    
-        try {
+        try    {
             enviar();
             pst=reg.prepareCall("call insertarusuario(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");        
             FileInputStream archivofoto;
@@ -556,6 +602,7 @@ nacimiento.setText(fecha);
     if (res==1){
         JOptionPane.showMessageDialog(rootPane,"Datos Guardados..");
         Limpiar();
+        Inventario("");
     }
     
  
@@ -609,6 +656,9 @@ nacimiento.setText(fecha);
         tipou.setSelectedItem("");
         fotogra.setText("");
         dir.setText("");
+         Image foto= getToolkit().createImage(dir.getText());
+        foto = foto.getScaledInstance(156, 147, Image.SCALE_DEFAULT);
+        fotogra.setIcon(new ImageIcon(foto));
         }
     
     
@@ -654,6 +704,7 @@ nacimiento.setText(fecha);
            int res=pst.executeUpdate();
     if (res==1){
         JOptionPane.showMessageDialog(rootPane,"Datos Actualizados");
+    Inventario("");
     }
         
  
@@ -670,6 +721,40 @@ nacimiento.setText(fecha);
     private void iddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddActionPerformed
 
     }//GEN-LAST:event_iddActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        int fila= jTable1.getSelectedRow();
+    String i="";
+    i=jTable1.getValueAt(fila, 0).toString();
+    if(fila>=0)
+    {
+        try {
+            PreparedStatement pst=reg.prepareCall("{call eliminarusuario(?)}");
+            pst.setString(1, i);
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Usuario Eliminado");
+        }  catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Seleccione alguna fila "+e);
+        }
+    }
+   
+   if (fila<0)
+    {
+        JOptionPane.showMessageDialog(this, "No ha selecionada ninguna fila");
+   }
+
+
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Limpiar();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -730,6 +815,7 @@ nacimiento.setText(fecha);
     private javax.swing.JTextField direccion;
     private javax.swing.JTextField dpi;
     private javax.swing.JMenuItem editar;
+    private javax.swing.JMenuItem eliminar;
     private javax.swing.JTextField email;
     private javax.swing.JLabel fotogra;
     private javax.swing.JTextField id;
@@ -758,6 +844,7 @@ nacimiento.setText(fecha);
     private javax.swing.JPopupMenu menu;
     private javax.swing.JTextField nacimiento;
     private javax.swing.JTextField nombre;
+    private javax.swing.JButton regresar;
     private javax.swing.JTextField telefono;
     private javax.swing.JComboBox tipotel;
     private javax.swing.JComboBox tipou;
