@@ -77,7 +77,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel51 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
+        evento = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         jLabel53 = new javax.swing.JLabel();
@@ -424,10 +424,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton21.setText("Evento festivo");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        evento.setText("Evento festivo");
+        evento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eventoMouseClicked(evt);
+            }
+        });
+        evento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                eventoActionPerformed(evt);
             }
         });
 
@@ -461,7 +466,7 @@ public class Principal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton21)
+                                .addComponent(evento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton22))
                             .addGroup(jPanel8Layout.createSequentialGroup()
@@ -498,7 +503,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton19)
                     .addComponent(jButton20)
-                    .addComponent(jButton21)
+                    .addComponent(evento)
                     .addComponent(jButton22)
                     .addComponent(jButton23))
                 .addContainerGap(251, Short.MAX_VALUE))
@@ -542,26 +547,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
+        Reporte_Visita rep= Reporte_Visita();
+        rep.setVisible(true)
+;        
     }//GEN-LAST:event_jButton22ActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    private void eventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventoActionPerformed
+        ReporteActFestiva fest= new ReporteActFestiva();
+        fest.setVisible(true);
+    }//GEN-LAST:event_eventoActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    ReporteCapacitacion rep= new ReporteCapacitacion();
+    rep.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+            ReporteProyecto pr = new ReporteProyecto(this, true);
+            pr.setVisible (true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
+        Reporte_Grupo grup= Reporte_Grupo();
+        grup.setVisible(true);
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+            Reporte_Integrantes report = new Reporte_Integrantes(this, true);
+            report.setVisible (true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
 
@@ -572,29 +587,36 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+           NewGroup grup= NewGroup();
+        grup.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+            NewMember member = new NewMember(this, true);
+            member.setVisible (true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        RegistroActividad act= new RegistroActividad();
+        act.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        NewFestiveActivity fest= new NewFestiveActivity(this, true);
+        fest.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        NewTraining abrir = new NewTraining();
-        abrir.setVisible(true);// TODO add your handling code here: // TODO add your handling code here:
-        this.setVisible(false);        // TODO add your handling code here:
+        RegistroCapacitacion cap = new RegistroCapacitacion();
+        cap.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+    NewVisit vis=NewVisit();
+    vis.setVisible(true);
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -618,6 +640,12 @@ public class Principal extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void eventoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eventoMouseClicked
+        NewFestiveActivity fest= new NewFestiveActivity();
+        fest.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eventoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -659,6 +687,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane MENU;
     private javax.swing.JPanel NewEvent;
     private javax.swing.ButtonGroup Read_group;
+    private javax.swing.JButton evento;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -670,7 +699,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
@@ -707,4 +735,20 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup tipo_evento_groud;
     private javax.swing.ButtonGroup write_group;
     // End of variables declaration//GEN-END:variables
+
+    private NewGroup NewGroup() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private NewVisit NewVisit() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Reporte_Grupo Reporte_Grupo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Reporte_Visita Reporte_Visita() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

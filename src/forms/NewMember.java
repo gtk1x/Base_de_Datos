@@ -1169,7 +1169,6 @@ void Limpiar(){
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
         this.dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_regresarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed

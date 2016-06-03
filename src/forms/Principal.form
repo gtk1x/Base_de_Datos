@@ -540,7 +540,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -550,7 +550,7 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="jButton20" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton21" min="-2" max="-2" attributes="0"/>
+                                      <Component id="evento" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jButton22" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -598,7 +598,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton19" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton20" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="evento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton22" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton23" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -650,12 +650,13 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton20ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton21">
+            <Component class="javax.swing.JButton" name="evento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Evento festivo"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton21ActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="eventoMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eventoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton22">
