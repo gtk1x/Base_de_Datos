@@ -62,6 +62,7 @@ public class NewMember extends javax.swing.JDialog {
         jTimeChooserDemo1 = new lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         Editar = new javax.swing.JMenuItem();
+        Eliminar = new javax.swing.JMenuItem();
         jLabel8 = new javax.swing.JLabel();
         imagen = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -127,6 +128,7 @@ public class NewMember extends javax.swing.JDialog {
         guardar = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         actualizar = new javax.swing.JButton();
+        regresar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -141,6 +143,14 @@ public class NewMember extends javax.swing.JDialog {
             }
         });
         jPopupMenu1.add(Editar);
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Integrante");
@@ -270,7 +280,7 @@ public class NewMember extends javax.swing.JDialog {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(idio2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, null));
@@ -452,6 +462,17 @@ public class NewMember extends javax.swing.JDialog {
 
         jLabel5.setText("Apellidos:");
 
+        tel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telActionPerformed(evt);
+            }
+        });
+        tel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                telKeyPressed(evt);
+            }
+        });
+
         dpi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dpiActionPerformed(evt);
@@ -467,16 +488,6 @@ public class NewMember extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dir)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -500,11 +511,19 @@ public class NewMember extends javax.swing.JDialog {
                             .addComponent(ape2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(dpi, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(10, 10, 10))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dir)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -579,7 +598,7 @@ public class NewMember extends javax.swing.JDialog {
         });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel21.setText("Panel de Búsqueda");
+        jLabel21.setText("Panel de Opciones");
 
         actualizar.setText("Actualizar");
         actualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -588,23 +607,31 @@ public class NewMember extends javax.swing.JDialog {
             }
         });
 
+        regresar.setText("Regresar");
+        regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(172, 172, 172)
+                .addComponent(jLabel21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(regresar)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(guardar)
-                        .addGap(110, 110, 110)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                        .addComponent(actualizar))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel21)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(117, 117, 117)
+                        .addComponent(jButton2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addComponent(actualizar)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -612,12 +639,13 @@ public class NewMember extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(jButton2)
                     .addComponent(actualizar))
-                .addGap(27, 27, 27))
+                .addGap(33, 33, 33)
+                .addComponent(regresar))
         );
 
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -993,7 +1021,6 @@ nacimiento.setText(fecha);
 
     private void proyectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proyectActionPerformed
         try{
-            //   Connection reg=DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","BIMAR","A0E9M0L3N");
             Statement Sent1=reg.createStatement();
             ResultSet rs1= Sent1.executeQuery("select id from proyecto where nombre= '"+this.proyect.getSelectedItem()+"'");
             rs1.next();
@@ -1140,6 +1167,44 @@ void Limpiar(){
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
+        this.dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regresarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+    int fila= jTable1.getSelectedRow();
+    String i="";
+    i=jTable1.getValueAt(fila, 0).toString();
+    if(fila>=0)
+    {
+        try {
+            PreparedStatement pst=reg.prepareCall("{call eliminarmiembro(?)}");
+            pst.setString(1, i);
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, "Usuario Eliminado");
+        }  catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Seleccione alguna fila "+e);
+        }
+    }
+   
+   if (fila<0)
+    {
+        JOptionPane.showMessageDialog(this, "No ha selecionada ninguna fila");
+   }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void telActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telActionPerformed
+
+    private void telKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telKeyPressed
+ char c = evt.getKeyChar();
+       if (c< '0' || c>'9') evt. consume();        // TODO add your handling code here:
+    }//GEN-LAST:event_telKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -1199,6 +1264,7 @@ void Limpiar(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Editar;
+    private javax.swing.JMenuItem Eliminar;
     private javax.swing.ButtonGroup Read_group;
     private javax.swing.JButton actualizar;
     private javax.swing.JTextField ape1;
@@ -1267,6 +1333,7 @@ void Limpiar(){
     private javax.swing.JComboBox oficio;
     private javax.swing.JComboBox proyect;
     private javax.swing.JTextField region;
+    private javax.swing.JButton regresar;
     private javax.swing.JComboBox religion;
     private javax.swing.JTextField rutadpi;
     private javax.swing.JTextField rutafoto;
