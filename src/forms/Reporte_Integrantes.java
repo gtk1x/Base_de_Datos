@@ -93,7 +93,7 @@ public class Reporte_Integrantes extends javax.swing.JFrame implements Printable
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ordenar Por", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ordenar Por", 0, 0, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         buttonGroup1.add(apellido);
         apellido.setText("Apellido");
@@ -149,6 +149,7 @@ public class Reporte_Integrantes extends javax.swing.JFrame implements Printable
                 .addContainerGap())
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Document-50.png")); // NOI18N
         jButton1.setText("Imprimir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +157,7 @@ public class Reporte_Integrantes extends javax.swing.JFrame implements Printable
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/External Link-48.png")); // NOI18N
         jButton2.setText("Regresar");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -233,7 +235,7 @@ public class Reporte_Integrantes extends javax.swing.JFrame implements Printable
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(410, 410, 410)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
         jPanel3Layout.setVerticalGroup(

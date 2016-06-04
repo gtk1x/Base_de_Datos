@@ -110,6 +110,7 @@ public class ReporteActividades extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Document-50.png")); // NOI18N
         jButton1.setText("IMPRIMIR REPORTE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +136,7 @@ public class ReporteActividades extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(259, 259, 259)
                 .addComponent(jButton1)
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -145,9 +146,9 @@ public class ReporteActividades extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(14, 14, 14)
                 .addComponent(jButton1)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(87, 87, 87)

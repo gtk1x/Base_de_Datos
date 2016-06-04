@@ -154,6 +154,7 @@ fech.setText(fecha);
             }
         });
 
+        btname.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Search-48.png")); // NOI18N
         btname.setText("Ver");
         btname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +162,7 @@ fech.setText(fecha);
             }
         });
 
+        btfech.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Search-48.png")); // NOI18N
         btfech.setText("Ver");
         btfech.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +170,7 @@ fech.setText(fecha);
             }
         });
 
+        btdur.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Search-48.png")); // NOI18N
         btdur.setText("Ver");
         btdur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +184,7 @@ fech.setText(fecha);
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Document-50.png")); // NOI18N
         jButton1.setText("Imprimir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +192,7 @@ fech.setText(fecha);
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Minus-48.png")); // NOI18N
         jButton2.setText("Cerrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +200,7 @@ fech.setText(fecha);
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Toolbox-48.png")); // NOI18N
         jButton3.setText("Ver todos los Proyectos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,10 +224,10 @@ fech.setText(fecha);
                     .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtdur))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btdur)
-                        .addGap(182, 182, 182)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btname)
@@ -283,7 +289,7 @@ fech.setText(fecha);
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+                .addComponent(jScrollPane4)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)

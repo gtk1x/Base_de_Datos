@@ -123,7 +123,7 @@
                                                   </Group>
                                                   <Component id="txtvision" alignment="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace pref="61" max="32767" attributes="0"/>
+                                              <EmptySpace pref="170" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -149,10 +149,6 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="cmbnombre" min="-2" pref="125" max="-2" attributes="0"/>
                                   <Component id="jLabel8" min="-2" pref="297" max="-2" attributes="0"/>
@@ -169,6 +165,11 @@
                       </Group>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="909" max="32767" attributes="0"/>
+              <Component id="jButton2" min="-2" pref="127" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -257,8 +258,8 @@
               </Group>
               <Component id="jScrollPane1" min="-2" pref="264" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
@@ -274,6 +275,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/gtk1x/Desktop/gromm/Briefcase-48.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
       <Events>
@@ -284,6 +288,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/gtk1x/Desktop/gromm/Toolbox-48.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="MENU"/>
       </Properties>
@@ -397,6 +404,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/gtk1x/Desktop/gromm/Restart-48.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
       </Properties>
       <Events>
@@ -431,6 +441,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="/Users/gtk1x/Desktop/gromm/Restart-48.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Actualizar tabla"/>
       </Properties>
       <Events>

@@ -129,6 +129,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
             }
         });
 
+        btnGuardar.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Briefcase-48.png")); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +137,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
             }
         });
 
+        txtclear.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Restart-48.png")); // NOI18N
         txtclear.setText("Actualizar");
         txtclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +218,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnGuardar)
                         .addComponent(txtclear)))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
@@ -242,6 +244,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
         txtfecha1.setDateFormatString("dd-MM-yyyy");
         txtfecha1.setMinSelectableDate(new java.util.Date(-62135744340000L));
 
+        btnfecha.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Search-48.png")); // NOI18N
         btnfecha.setText("Buscar");
         btnfecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +252,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/News-48.png")); // NOI18N
         jButton1.setText("Ver todas las actividades");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +301,7 @@ public class NewFestiveActivity extends javax.swing.JDialog {
                     .addContainerGap()))
         );
 
+        btnCancelar.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Minus-48.png")); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

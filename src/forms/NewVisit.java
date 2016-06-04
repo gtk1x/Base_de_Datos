@@ -207,6 +207,7 @@ txtfech.setText(fecha);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nueva Actividad");
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Briefcase-48.png")); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +215,7 @@ txtfech.setText(fecha);
             }
         });
 
+        jButton2.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Minus-48.png")); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +264,7 @@ txtfech.setText(fecha);
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("NUEVA VISITA");
 
+        jButton3.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Restart-48.png")); // NOI18N
         jButton3.setText("ACTUALIZAR TABLA");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,6 +274,7 @@ txtfech.setText(fecha);
 
         jLabel3.setText("id");
 
+        jButton4.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Restart-48.png")); // NOI18N
         jButton4.setText("Actualizar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +282,7 @@ txtfech.setText(fecha);
             }
         });
 
+        jButton5.setIcon(new javax.swing.ImageIcon("/Users/gtk1x/Desktop/gromm/Toolbox-48.png")); // NOI18N
         jButton5.setText("MENU");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +348,7 @@ txtfech.setText(fecha);
                         .addGap(168, 168, 168)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 645, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3)
@@ -404,7 +409,7 @@ txtfech.setText(fecha);
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addGap(0, 9, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
