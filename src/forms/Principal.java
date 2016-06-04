@@ -41,11 +41,7 @@ public class Principal extends javax.swing.JFrame {
         tipo_evento_groud = new javax.swing.ButtonGroup();
         MENU = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
@@ -92,26 +88,10 @@ public class Principal extends javax.swing.JFrame {
         MENU.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
         MENU.setName("Agenda1"); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        jLabel2.setText("y sus integrantes.");
-        jLabel2.setAutoscrolls(true);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Imagen1_1.png"))); // NOI18N
-
-        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel20.setText("permite llevar un control de las distintas actividades planificadas");
-        jLabel20.setAutoscrolls(true);
-
-        jLabel21.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel21.setText("GR-OMM Es un gestor de grupos organizados de mujeres,");
-        jLabel21.setAutoscrolls(true);
-
-        jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
-        jLabel22.setText("por la oficina municipal de la mujer,");
-        jLabel22.setAutoscrolls(true);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logoresolucionbaja.png"))); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel23.setText("como tambien el registro de grupos organizados");
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/forms/panel2.png"))); // NOI18N
         jLabel23.setAutoscrolls(true);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -121,43 +101,21 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(309, 309, 309)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(70, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 978, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleDescription("");
 
         MENU.addTab("INICIO", jPanel3);
 
@@ -708,10 +666,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;

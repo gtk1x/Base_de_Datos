@@ -59,7 +59,6 @@ public class NewMember extends javax.swing.JDialog {
 
         Read_group = new javax.swing.ButtonGroup();
         write_group = new javax.swing.ButtonGroup();
-        jTimeChooserDemo1 = new lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         Editar = new javax.swing.JMenuItem();
         Eliminar = new javax.swing.JMenuItem();
@@ -716,7 +715,7 @@ public class NewMember extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 523, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fotodpi, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1323,7 +1322,6 @@ void Limpiar(){
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private lu.tudor.santec.jtimechooser.demo.JTimeChooserDemo jTimeChooserDemo1;
     private com.toedter.calendar.JDateChooser jdt;
     private javax.swing.JTextField nacimiento;
     private javax.swing.JTextField nom1;
